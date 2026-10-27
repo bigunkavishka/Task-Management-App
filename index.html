@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskFlow - A simple task management app">
+  <title>TaskFlow | Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div>
+        <p class="eyebrow">MY WORKSPACE</p>
+        <h1>TaskFlow<span>.</span></h1>
+        <p class="subtitle">Plan your day, one task at a time.</p>
+      </div>
+      <div class="date" id="today"></div>
+    </header>
+
+    <section class="stats" aria-label="Task statistics">
+      <div class="stat-card">
+        <span>Total tasks</span>
+        <strong id="totalCount">0</strong>
+      </div>
+      <div class="stat-card">
+        <span>Active</span>
+        <strong id="activeCount">0</strong>
+      </div>
+      <div class="stat-card">
+        <span>Completed</span>
+        <strong id="completedCount">0</strong>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 id="formTitle">Add a new task</h2>
+      <form id="taskForm">
+        <label for="taskInput">Task name</label>
+        <div class="form-row">
+          <input id="taskInput" type="text"
+            placeholder="e.g. Finish portfolio website"
+            maxlength="120" required>
+          <button class="primary-btn" id="submitBtn" type="submit">
+            + Add Task
+          </button>
+        </div>
+        <button type="button" id="cancelEdit" class="cancel-btn" hidden>
+          Cancel edit
+        </button>
+      </form>
+    </section>
+
+    <section class="tasks-section">
+      <div class="section-heading">
+        <h2>My Tasks</h2>
+        <span id="taskSummary"></span>
+      </div>
+
+      <label class="sr-only" for="searchInput">Search tasks</label>
+      <input id="searchInput" class="search"
+        type="search" placeholder="Search tasks...">
+
+      <div class="filters" aria-label="Filter tasks">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="active">Active</button>
+        <button class="filter" data-filter="completed">Completed</button>
+      </div>
+
+      <ul id="taskList" class="task-list"></ul>
+      <p id="emptyMessage" class="empty" hidden>No tasks found. Add one!</p>
+    </section>
+
+    <footer>
+      <p>Built with HTML, CSS & JavaScript · TaskFlow</p>
+    </footer>
+  </main>
+</body>
+</html>
